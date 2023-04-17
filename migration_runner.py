@@ -32,7 +32,8 @@ class MigrationRunner:
 
     def rollback(self):
         last_migration = self.model.select().order_by(
-            self.model.filename.desc()).get_or_none()
+            self.model.filename.desc()
+        ).get_or_none()
 
         if last_migration:
             file: Path = self.migrations_dir / last_migration.filename
