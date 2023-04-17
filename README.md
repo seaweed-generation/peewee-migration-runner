@@ -16,6 +16,8 @@ def down(migrator):
     pass
 ```
 
+See the [peewee documentation](https://docs.peewee-orm.com/en/latest/peewee/playhouse.html#migrate) for what the migration implementations should look like.
+
 Note that both functions are run inside a call to `Database.atomic()`. This may or may not have an effect, depending on your database.
 
 Migrations are applied by creating an instance of the class with a peewee database object, then running either the `run` or `rollback` method. Typically this would be wrapped in a CLI command. For example with Flask, you'd have something like:
