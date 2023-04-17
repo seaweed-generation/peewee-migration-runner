@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Runs peewee migrations"
 authors = ["Dan Schaub <dan@seaweedgeneration.com>"]
 readme = "README.md"
-packages = [{ include = "peewee_migration_runner" }]
+include = ["peewee_migration_runner.py"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
