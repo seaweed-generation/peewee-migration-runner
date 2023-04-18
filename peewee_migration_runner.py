@@ -70,7 +70,8 @@ class MigrationRunner:
 
         if not rollback:
             raise NameError(
-                f'Cannot rollback with {migration_file.name}, down function not defined')
+                f'Cannot rollback with {migration_file.name}, down function not defined'
+            )
 
         with self.db.atomic():
             rollback(self.pw_migrator)
@@ -82,8 +83,7 @@ class MigrationRunner:
         file_globals = {}
         exec(ast, file_globals, None)
 
-        if not file_globals['up']:
-            raise NameError(
-                'Migration file does not contain an up function.')
+        if 'up' not in file_globals:
+            raise NameError('Migration file does not contain an up function.')
 
-        return file_globals['up'], file_globals['down']
+        return file_globals['up'], file_globals.get('down')
