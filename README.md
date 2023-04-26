@@ -4,7 +4,7 @@
 
 ## Usage
 
-Migration files are assumed to be in the current working directory + `/migrations`. The files are applied in order alphabetically. You can format the file names however you want - by date (i.e. Rails style, `20230417145000_CreateSomeTables.py`), or numerically (i.e. `001_CreateSomeTables.py`), or anything. They just have to be python files.
+Migration files are assumed to be in the current working directory + `/migrations`. The files are applied in order alphabetically. You can format the file names however you want - by date (i.e. Rails style, `20230417145000_CreateSomeTables.py`), or numerically (i.e. `001_CreateSomeTables.py`), or anything, as long as they don't start with an underscore. They just have to be python files.
 
 Each migration file _must_ define an `up` function, and _may_ define a `down` function, if you ever want to rollback. It's optional in case you don't feel like writing it until it's necessary. The functions take in an instance of the peewee `SchemaMigrator` class, and from there the rest is up to you. A template would look like:
 

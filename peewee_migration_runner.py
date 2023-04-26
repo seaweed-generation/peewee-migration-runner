@@ -46,7 +46,7 @@ class MigrationRunner:
             self._apply_rollback(file, last_migration)
 
     def _unapplied_files(self):
-        files = self.migrations_dir.glob('*.py')
+        files = self.migrations_dir.glob('[!_]*.py')
         applied = set(m.filename for m in self.model.select())
         todo = []
 
